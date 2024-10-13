@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 import random
 from tqdm import tqdm
 from torch.optim import lr_scheduler
-from data_airy import y0, yp0
+from data_airy import y0, yp0, save_dataframe
 from data_processing import split_data, data_to_tuple
 from data_processing import draw_plot_airy, draw_plot_compare
 from data_processing import mse, rmse, r2, mae, mape, wape
@@ -248,6 +248,7 @@ def manual_launch(layers_list, epochs, batchsize, start_lr, opt,
 if __name__ == "__main__":
     from data_airy import get_data_airy
     dataframe_airy = get_data_airy()
+    save_dataframe(dataframe_airy)
 
     layers = [
     nn.Linear(1, 50),
